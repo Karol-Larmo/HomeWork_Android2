@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">HomeWork</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="add_task">Add new Contact</string>
+    <string-array name="images">
+        <item>drawable 1</item>
+        <item>drawable 2</item>
+        <item>drawable 3</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="item_selected_msg">Details of Contact</string>
+    <string name="Name">Name</string>
+    <string name="Surname">Surname</string>
+    <string name="Date">Date [DD/MM/YYYY] </string>
+    <string name="phone">Phone Number</string>
+    <string name="staticNumber">"Number: "</string>
+    <string name="delete_question">Delete contact?</string>
+    <string name="dialog_confirm">YES</string>
+    <string name="dialog_cancel">NO</string>
+    <string name="delete_dialog_tag">delete_dialog_tag</string>
+    <string name="deleted_no">Delete canceled</string>
+    <string name="back_message">Contact added</string>
+    <string name="LOL">LOOOOOOOOL</string>
+    <string name="LOL1">LOOOOL1111</string>
+    <string name="LOL2">ERROR</string>
+    <string name="call_question">Call this number?</string>
+    <string name="call_confirm">CALL</string>
+    <string name="call_declain">NO</string>
+    <string name="call_dialog_tag">call_dialog_tag</string>
+    <string name="almost">This function is not available</string>
+</resources>

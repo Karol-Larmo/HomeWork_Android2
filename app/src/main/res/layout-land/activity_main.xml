@@ -11,20 +11,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:layout_weight="2" >
 
-    <fragment
-        android:id="@+id/contactsFragment"
-        android:name="com.example.homework.ContactsFragment"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/contactName"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph"
-        tools:layout="@layout/fragment_contacts_list" />
+        <fragment
+            android:id="@+id/contactsFragment"
+            android:name="com.example.homework.ContactsFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/contactName"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph"
+            tools:layout="@layout/fragment_contacts_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -33,7 +34,7 @@
         android:name="com.example.homework.ContactInfoFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="3"
         tools:layout="@layout/fragment_contact_info">
     </fragment>
 

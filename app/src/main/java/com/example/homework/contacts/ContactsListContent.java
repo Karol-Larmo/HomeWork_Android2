@@ -47,6 +47,11 @@ public class ContactsListContent {
         ITEM_MAP.remove(itemId);
     }
 
+    public static String getName(int position)
+    {
+        return ITEMS.get(position).name;
+    }
+
     private static Contact createDummyItem(int position) {
         return new Contact(String.valueOf(position), "Jane");
     }

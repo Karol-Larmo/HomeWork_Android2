@@ -16,6 +16,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.provider.CallLog;
+import android.telecom.Call;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -99,11 +101,6 @@ public class MainActivity extends AppCompatActivity implements ContactsFragment.
             imm.hideSoftInputFromWindow( w.getWindowToken(),0);
 
             Toast.makeText(getApplicationContext(),getText(R.string.back_message), Toast.LENGTH_SHORT).show();
-           // }
-            //else
-            //{
-            //    Toast.makeText(getApplicationContext(),getText(R.string.LOL1), Toast.LENGTH_SHORT).show();
-            //}
         }else
         {
             Toast.makeText(getApplicationContext(),getText(R.string.LOL2), Toast.LENGTH_SHORT).show();
@@ -136,9 +133,12 @@ public class MainActivity extends AppCompatActivity implements ContactsFragment.
 
     @Override
     public void onListFragmentLongClickInteraction(int position) {
+        currentItemPosition = position;
         dialog_int=2;
+        String name = ContactsListContent.getName(position);
+
     showCallDialog();
-    currentItemPosition = position;
+
     }
 
     @Override

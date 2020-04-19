@@ -26,12 +26,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.156"
          />
-    <EditText
+    <TextView
         android:hint="@string/Date"
         android:id="@+id/addDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="16dp"
+        android:gravity="center"
         app:layout_constraintTop_toBottomOf="@+id/addSurname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -61,6 +62,8 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addPhone" />
+
+     />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

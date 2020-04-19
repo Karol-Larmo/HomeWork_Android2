@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 public class CallDialog extends DialogFragment {
 
     private OnCallDialogInteractionListener mListener;
+    public String name;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -36,6 +38,12 @@ public class CallDialog extends DialogFragment {
         // Required empty public constructor
     }
 
+    public void setName(String NAME)
+    {
+        name = NAME;
+    }
+
+
     static CallDialog newInstance()
     {
         return new CallDialog();
@@ -45,7 +53,10 @@ public class CallDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState)
     {
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
 
         builder.setMessage(getString(R.string.call_question));
 

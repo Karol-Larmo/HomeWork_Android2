@@ -4,25 +4,63 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.homework.contacts.ContactsListContent;
 
+import java.util.Calendar;
 import java.util.Random;
 
 public class AddContact extends AppCompatActivity {
+
+    private static final String TAG = "AddContact";
+    private String datee;
+    private TextView display_date;
+    private DatePickerDialog.OnDateSetListener mDateLisener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
+        display_date = (TextView) findViewById(R.id.addDate);
+
+        display_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(AddContact.this, R.style.ThemeOverlay_AppCompat_Dark,
+                        mDateLisener, year, month,day);
+                dialog.getWindow().setGravity(Gravity.CENTER_VERTICAL);
+                dialog.show();
+            }
+        });
+        mDateLisener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+            Log.d(TAG, "onDATESET: DD/MM/YYYY" + dayOfMonth +"/" +month +"/" + year);
+            month =month +1;
+            datee = dayOfMonth + "/" + month+"/"+year;
+            display_date.setText(datee);
+            }
+        };
 
             }
 
@@ -30,11 +68,10 @@ public class AddContact extends AppCompatActivity {
     public void AddContact(View view) {
         EditText nameEditText = findViewById(R.id.addName);
         EditText surnameEditText = findViewById(R.id.addSurname);
-        EditText dateEditText = findViewById(R.id.addDate);
         EditText phoneEditText = findViewById(R.id.addPhone);
         String name = nameEditText.getText().toString();
         String surname = surnameEditText.getText().toString();
-        String date = dateEditText.getText().toString();
+        String date = datee;
         String phone = phoneEditText.getText().toString();
         Random rand = new Random();
         int rand_int = rand.nextInt(4);
@@ -44,7 +81,7 @@ public class AddContact extends AppCompatActivity {
         else if(rand_int ==3) rand_string= "3";
         else rand_string= "4";
         Intent data = new Intent();
-        //date checking
+        /*//date checking
         Log.d("LENGHT", "lenght = " + date.length());
         boolean date_check = false;
         if(date.length() ==10)
@@ -83,7 +120,7 @@ public class AddContact extends AppCompatActivity {
                     }
                 }
             }
-        }
+        } */
 
 
         //phone checking
@@ -101,7 +138,7 @@ public class AddContact extends AppCompatActivity {
         }
 
 
-        if(name.isEmpty() || surname.isEmpty() || date.isEmpty() || phone.isEmpty() || phone_check !=9 || date_check == false)
+        if(name.isEmpty() || surname.isEmpty() || date.isEmpty() || phone.isEmpty() || phone_check !=9)
         {
             setResult(RESULT_CANCELED, data);
         }else
@@ -116,7 +153,7 @@ public class AddContact extends AppCompatActivity {
 
         nameEditText.setText("");
         surnameEditText.setText("");
-        dateEditText.setText("");
+        display_date.setText("");
         phoneEditText.setText("");
 
         finish();
